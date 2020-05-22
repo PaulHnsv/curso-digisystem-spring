@@ -1,0 +1,1 @@
+comando para acessar uma nova branch git checkout -b dev
