@@ -1,16 +1,56 @@
 <html>
     <head>
         <title> Aula de HTML </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h1>Meu Primeiro Título</h1>
-        <h2>Meu Primeiro Título</h2>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+
+        <h1 class="titulo titulo-mega-grande">Meu Primeiro Título</h1>
+        <h2 class="titulo">Meu Primeiro Título</h2>
+        <!-- 
         <h3>Meu Primeiro Título</h3>
         <h4>Meu Primeiro Título</h4>
         <h5>Meu Primeiro Título</h5>
-        <h6>Meu Primeiro Título</h6>
+        <h6>Meu Primeiro Título</h6> -->
         
-        <p> <b> <font size="5" color="#rrggbb"> Este texto está em negrito </font> </b> </p>
+        <p id="meuParagrafo" class="titulo"> <b> Este texto está em negrito </b> </p>
         
         <div>
             <p>
@@ -18,16 +58,16 @@
             </p>
         </div>
         
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png">
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png"> -->
 
         <p>
-            <a href="https://www.google.com.br/search?q=html&source=lmns&bih=659&biw=681&hl=pt-BR&ved=2ahUKEwjRjfi5j8rpAhVVMrkGHThZD0UQ_AUoAHoECAEQAA" target="blank">Ir para a página do Google</a>
+            <a href="https://www.google.com.br/search?q=html&source=lmns&bih=659&biw=681&hl=pt-BR&ved=2ahUKEwjRjfi5j8rpAhVVMrkGHThZD0UQ_AUoAHoECAEQAA" target="blank">
+                Ir para a página do Google </a>
         </p>
     
         <p>  
-            <a href="http://grandeporte.com.br" target="blank">
-            <img src="https://grandeporte.com.br/images/matricula.jpg" >
-            </a>
+            <a class="btn btn-primary" href="http://grandeporte.com.br" target="blank"> 
+                Ir para o site da grandeporte </a>
         </p>
 
         <ul>
@@ -56,13 +96,13 @@
         </table>
 
         <br>
-        <input type="text">
+        <input class="form-control" type="text">
         <br>
-        <input type="password">
+        <input class="form-control" type="password">
         <button> Enviar </button>
 
         <br>
-        <select>
+        <select class="form-control">
             <option> Opção 1</option>
             <option> Opção 2</option>
         </select>
@@ -75,5 +115,11 @@
         <br>
         <textarea cols="30" rows="10"> </textarea>
         
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     </body>
+
 </html>

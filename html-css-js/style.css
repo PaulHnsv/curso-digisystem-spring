@@ -1,0 +1,13 @@
+.titulo{
+    background-color: darkslateblue;
+    cursor: pointer;
+}
+
+.titulo-mega-grande{
+    font-size: 4em;
+
+}
+
+#meuParagrafo{
+    font-size: 3em;
+}
