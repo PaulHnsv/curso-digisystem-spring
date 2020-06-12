@@ -4,8 +4,8 @@ package br.com.digisystem.api.controller;
 
 //import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digisystem.api.model.Produto;
 import br.com.digisystem.api.services.ProdutoService;
+import br.com.digisystem.api.services.execption.ObjectNotFoundDigiException;
 
 @RestController
 public class ProdutoController {
@@ -31,14 +33,19 @@ public class ProdutoController {
     
 	//@RequestMapping(method = RequestMethod.GET, value = "primeiro")
 	@GetMapping( value = "produtos")
-	public List<Produto> getAll() {
-		return this.produtoService.findAll();
+	public ResponseEntity<List<Produto>> getAll() {
+		List <Produto> list = this.produtoService.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 
 	//Mapeia uma url por alguma váriavel visivel na página principal
 	@RequestMapping(value = "produtos/{id_produto}")
-	public Produto get(@PathVariable("id_produto") int id_produto) {
-		return this.produtoService.findOne(id_produto).orElse(new Produto( 1000, "Nome", 1000));
+	public ResponseEntity<Produto> get(@PathVariable("id_produto") int id_produto) {
+		//return this.produtoService.findOne(id_produto).orElse(new Produto( 1000, "Nome", 1000));
+		
+		Produto p = this.produtoService.findOne(id_produto)
+				.orElseThrow( () -> new ObjectNotFoundDigiException("ID do produto não encontrado"));
+		return ResponseEntity.status(HttpStatus.OK).body(p);
 	}
 	
 	//pega uma requisição via body do JSON
@@ -63,7 +70,30 @@ public class ProdutoController {
 	
 	//Mapeia uma url por alguma váriavel visivel na página principal utilizando o filtro nome do produto
 		@GetMapping(value = "produtos/search/{nome}")
-		public List<Produto> getNome(@PathVariable("nome") String nome) {
+		public List<Produto> getNome(
+				@PathVariable("nome") String nome,
+				@RequestParam(value = "fcid", defaultValue = "") String fcid
+				) {
+			System.out.println(fcid);
 			return this.produtoService.findByNome(nome);
 		}
+		
+		//@GetMapping( value = "produtos/search/{nome}/{preco}" )
+		//public List<Produto> getByName( 			
+				//@PathVariable("nome") String nome,
+				//@PathVariable("preco") float preco,
+				//@RequestParam(value = "fcid", defaultValue = "") String fcid 
+			//) {
+			//System.out.println( fcid );
+			//return this.produtoService.findByNome( nome, preco );		
+		//}
+		//
+		//@GetMapping( value = "produtos/search/{nome}" )
+		//public List<Produto> getByNameWithouPreco( 			
+				//@PathVariable("nome") String nome,			
+				//@RequestParam(value = "fcid", defaultValue = "") String fcid 
+			//) {
+			//System.out.println( fcid );
+			//return this.produtoService.findByNome( nome, 0 );		
+		//}
 }

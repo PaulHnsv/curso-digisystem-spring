@@ -5,6 +5,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -28,7 +30,7 @@ public class ProdutoServiceTeste {
 	private ProdutoService produtoService;
 	
 	@InjectMocks
-	private Produto produto;
+	private Optional<Produto> produto;
 	
 	@Test
 	public void procuraUM(int id) {
