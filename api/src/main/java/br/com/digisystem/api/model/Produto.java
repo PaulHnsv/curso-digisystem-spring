@@ -1,34 +1,51 @@
 package br.com.digisystem.api.model;
 
-import javax.persistence.Column;
+
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-//Lombok
-@Getter
-@Setter
+@Data
+@Builder
+@EqualsAndHashCode ( onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 @Entity
 public class Produto {
-
-	@Id //chave primária
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id_produto;
 	
-	@Column(name = "nome")
+
+	@Id
+	@GeneratedValue ( strategy = GenerationType.IDENTITY )
+	@EqualsAndHashCode.Include
+	private int id;
+	
+	@ApiModelProperty(name = "nome", required = true)
 	private String nome;
 	
-	@Column(name = "preco")
 	private double preco;
 	
+	@ManyToMany
+	@JoinTable ( 
+			name="produtos_categorias" ,  
+			joinColumns = @JoinColumn ( name ="produto_id"), 
+			inverseJoinColumns = @JoinColumn( name = "categoria_id" ) 
+		)
+	private List<Categoria> categorias;
+		
+	//lombok
 }
+

@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.digisystem.api.model.Produto;
 import br.com.digisystem.api.services.ProdutoService;
 import br.com.digisystem.api.services.execption.ObjectNotFoundDigiException;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class ProdutoController {
 	

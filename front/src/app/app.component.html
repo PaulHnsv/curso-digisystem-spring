@@ -1,0 +1,41 @@
+<h4>Meu texto</h4>
+
+<p> {{ title }} </p>
+
+<p> {{ getMinhaVariavel() }} </p>
+
+<p> {{ 1 + 5 }} </p>
+
+<p> 
+  <a href="{{ site }}" target="blank"> Clique aqui intepolação</a>
+</p>
+
+<!-- bind interpolacao -->
+<p>
+    <a [href]="site" target="blank"> Clica aqui properties</a>
+</p>
+
+<!-- event properties -->
+<p>
+  <button class="btn btn-primary" (click)="onClick()"> Click aqui Event Bind </button>
+</p>
+
+<!-- event bind -->
+<p>
+  <input class="form-control"  type="text" (keyup)="onKeyup( $event.target.value )" > 
+</p>
+
+<!-- dois tipos de bind event bind e interpolação -->
+<p>
+  Event Biding + interpolacao: {{ meuTexto }}
+</p>
+
+<!-- two way dataBiding -->
+<p> Two Way DataBiding </p>
+<p>
+  <input type="text" [(ngModel)]="meuTexto">
+</p>
+
+<app-primeiro-autor>  </app-primeiro-autor>
+<app-segundo> </app-segundo>
+<app-produtos-list></app-produtos-list>
