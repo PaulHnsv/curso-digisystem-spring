@@ -1,0 +1,21 @@
+<form [formGroup]="formulario" (submit)="onSubmit()" >
+  <div class="form-group">
+    <label >Nome</label>
+    <input type="email" class="form-control" formControlName="nome" placeholder="Nome do Produto">
+
+    <app-form-errors [isError]="isFieldValid('nome')"  ></app-form-errors>
+  </div>
+
+  <div class="form-group">
+    <label> Preço </label>
+    <input type="text" class="form-control" formControlName="preco" placeholder="Preço do Produto">
+
+    <app-form-errors [isError]="isFieldValid('preco')"  ></app-form-errors>
+  </div>
+
+  <button type="submit" class="btn btn-primary"> {{ buttonText }}  </button></form>
+
+<p>
+  Form Válido : {{ formulario.valid }}
+</p>
+

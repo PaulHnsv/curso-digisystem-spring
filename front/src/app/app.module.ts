@@ -1,24 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimeiroAutorComponent } from './primeiro-autor/primeiro-autor.component';
 import { SegundoComponent } from './segundo/segundo.component';
-import { ProdutosModule } from './produtos/produtos.module';
+import { PrimeiroComponent } from './primeiro/primeiro.component';
+//import { ProdutosModule } from './produtos/produtos.module';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { CategoriaComponent } from './categorias/categoria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrimeiroAutorComponent,
-    SegundoComponent
+    SegundoComponent,
+    PrimeiroComponent,
+    HomeComponent,
+    NavbarComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ProdutosModule
+    //ProdutosModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

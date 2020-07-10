@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;" >
+  <div class="card-body">
+    <h5 class="card-title">Descrição do Produto</h5>
+
+
+    <!-- <p class="card-text" > Id:   {{ (produtoSelecionadoFilho != null ? produtoSelecionadoFilho.id : '') }} </p> -->
+
+    <!-- null safety -->
+    <p class="card-text" > Id:   {{ produtoSelecionadoFilho?.id }} </p>
+    <p class="card-text"> Nome:   {{ produtoSelecionadoFilho?.nome }} </p>
+    <p class="card-text"> Preço:   {{ produtoSelecionadoFilho?.preco }} </p>
+
+    <p> UPPER CASE: {{ upperCaseNome() }} </p>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-3">
+  <button class="btn btn-primary" (click)="notificarPai()"> notificarPai </button>
+</div>

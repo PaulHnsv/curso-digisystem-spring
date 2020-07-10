@@ -1,1 +1,67 @@
-<p>produtos-list works!</p>
+
+<!-- <p>produtos-list works!</p> -->
+
+<div class="float-right mt-3 mb-3">
+  <a [routerLink]="['/produtos/novo']" class="btn btn-primary"> Novo </a>
+</div>
+
+<!-- diretivas -->
+<table class="table" *ngIf="isShow == true">
+
+  <tr>
+    <th> ID </th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th> Mais Detalhes </th>
+  </tr>
+
+  <tr *ngFor=" let p of produtos" >
+    <td> {{  p.id  }} </td>
+    <td> {{  p.nome  }} </td>
+    <td> {{  p.preco  }} </td>
+    <td>
+
+      <!-- <button class="btn btn-info"
+      (click)="editar( p )" > Editar </button> -->
+
+      <a class="btn btn-info mr-2" [routerLink]="['/produtos', p.id]" > Editar </a>
+      <button class="btn btn-danger" (click)="delete( p.id )"  > Deletar </button>
+    </td>
+  </tr>
+
+</table>
+
+<!-- <p>
+  <button class="btn btn-primary" (click)="onTabelaClick()" > Tabela </button>
+</p> -->
+
+<!-- <div class="row justify-content-center">
+  <app-produto-detalhe
+  [produtoSelecionadoFilho]="produtoSelecionadoPai"
+  (notificador)="receberEventoPai( $event )"
+  ></app-produto-detalhe>
+</div> -->
+
+<!-- <div [class.alert]="true" [class.alert-primary]="false" role="alert" >
+  This is an alert—check it out! - Sem NgClass
+</div>
+
+<div [ngClass]="{ 'alert': true, 'alert-primary': false }"
+  [ngStyle]="{'display': 'block', 'font-size' : '30px'}" >
+  Com NgClass
+</div>
+
+<div [ngClass]="minhaClasse" role="alert" *ngIf="minhaClasse.length > 0">
+  This is an alert—check it out!
+</div>
+
+
+<label class="my-1 mr-2"  > Preference </label>
+<select #meuSelect class="custom-select my-1 mr-sm-2" (change)="onSelectedBox( meuSelect.value )" >
+  <option selected>Choose...</option>
+  <option value="alert alert-primary"> Primary </option>
+  <option value="alert alert-secondary"> Secondary </option>
+  <option value="alert alert-info"> Info </option>
+</select>
+
+<p> Valor selecionado : {{ meuSelect.value }} </p> -->
