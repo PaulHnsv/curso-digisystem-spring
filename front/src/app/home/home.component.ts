@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from '../produtos/produto.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  ngOnInit(){
+  constructor(){
 
   }
+
+  ngOnInit(){
+    
+    }
 
   title = 'front alterando o texto de verdade';
   minhaVariavel = 'Angular 9';

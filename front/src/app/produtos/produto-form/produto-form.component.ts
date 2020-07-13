@@ -79,6 +79,8 @@ export class ProdutoFormComponent implements OnInit {
         .create ( this.formulario.value )
         .subscribe(
           (response) => {
+            this.produtoService.getProdutoBarramento().next( response );
+            this.toastr.success( 'Produto Criado com sucesso' );
             this.router.navigate (['produtos']);
           }
         );

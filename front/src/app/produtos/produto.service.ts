@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Produto } from './shared/produto';
+import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
+  
+  private produtoBarramento : Subject<Produto> = new Subject<Produto>();
+
+  url : String = `${environment.apiUrl}/produtos`;
 
   constructor( private http : HttpClient ) { }
 
@@ -15,13 +22,13 @@ export class ProdutoService {
     //  { id : 3, nome: 'Produto 3', preco: 300 },
     //  { id : 4, nome: 'Produto 4', preco: 400 }
     // ];
-    return this.http.get 
-    ( 'https://api.fabrizioborelli.com.br/digisystem/produtos' );
+    return this.http.get<Produto[]> ( `${this.url}` );
+
   }
   
   get( id ){
     //return this.http.get ( 'http://localhost:8080/produtos/' + id );
-    return this.http.get ( `https://api.fabrizioborelli.com.br/digisystem/produtos/${id}` );
+  return this.http.get<Produto> ( `${this.url}/${id}` );
   }
 
   //get( id ){
@@ -29,17 +36,21 @@ export class ProdutoService {
 
   update( id, produto ){
     return this.http
-    .put ( `https://api.fabrizioborelli.com.br/digisystem/produtos/${id}`, produto );
+    .put<Produto> (`${this.url}/${id}`, produto );
     }
 
     create( produto ){
       return this.http
-      .post ( `https://api.fabrizioborelli.com.br/digisystem/produtos`, produto );
+      .post<Produto> ( `${this.url}`, produto );
       }
 
       delete( id ){
         //return this.http.get ( `http://localhost:8080/produtos/${id}` );
         return this.http
-        .delete ( `https://api.fabrizioborelli.com.br/digisystem/produtos/${id}` );
+        .delete ( `${this.url}/${id}` );
         }
+
+        getProdutoBarramento() : Subject<Produto>{
+          return this.produtoBarramento;
+          }
 }

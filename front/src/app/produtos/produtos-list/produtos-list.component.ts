@@ -32,6 +32,13 @@ export class ProdutosListComponent implements OnInit {
         alert (error.status);
       }
     );
+    this.produtoService.getProdutoBarramento()
+    .subscribe(
+    ( obj ) => {
+    console.log ( 'Barramento de produtos' , obj);
+    this.toastr.info( 'Novo produto ' + obj.nome );
+        }
+      );
   }
 
   onTabelaClick(){
