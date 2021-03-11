@@ -1,4 +1,2 @@
 # curso-digisystem-spring
-Curso digisystem
-
-Alteração de teste
+Curso de capacitação focado nas tecnologias Angular, java, MYSQL e Spring FrameWork
