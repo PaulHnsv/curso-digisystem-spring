@@ -1,2 +1,2 @@
 # curso-digisystem-spring
-Curso de capacitação focado nas tecnologias Angular, java, MYSQL e Spring FrameWork
+Curso de capacitação focado nas tecnologias Angular, TypeScript, Java, MYSQL e Spring FrameWork
